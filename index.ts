@@ -147,3 +147,42 @@
 
 
             //Type Assertions (start here!!!)
+
+
+
+
+            //Type literals
+
+                // But by combining literals into unions, 
+                // you can express a much more useful concept - for example, 
+                // functions that only accept a certain set of known values:
+
+
+                function printText(s: string, alignment: "left" | "right" | "center") {
+                    // ...
+                }
+                printText("Hello, world", "left");
+                printText("G'day, mate", "centre"); 
+
+                //Argument of type '"centre"' is not assignable to parameter of type '"left" | "right" | "center"'.
+
+
+                //Example of numerical literal types working similiarly:
+
+                function compare(a: string, b: string): -1 | 0 | 1 {
+                    return a === b ? 0 : a > b ? 1 : -1;
+                }
+
+
+
+                // With strictNullChecks on, when a value is null or undefined, 
+                // you will need to test for those values before 
+                // using methods or properties on that value. 
+
+                    function doSomething(x: string | null) {
+                        if (x === null) {
+                        // do nothing
+                        } else {
+                        console.log("Hello, " + x.toUpperCase());
+                        }
+                    }
